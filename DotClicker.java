@@ -4,7 +4,7 @@ import java.awt.Toolkit;
 import java.awt.Dimension;
 import java.awt.event.InputEvent;
 
-public class Clicker {
+public class DotClicker {
 
     public static void main(String[] args) {
         try{
@@ -23,13 +23,12 @@ public class Clicker {
             System.out.println("Circle mode activate!");
             bobTheClicker.mouseMove(centerPoint[0], centerPoint[1]);
 
-            bobTheClicker.mousePress(InputEvent.BUTTON1_MASK);
-            for(int i=0; i<100;i++){
+            for(int i=0; i<1000;i++){
                 double radius = 200;
                 double theta = 0;
                 double h = centerPoint[0];
                 double k = centerPoint[1];
-                double step = 1;
+                double step = 10;
 
                 System.out.println("About to do the thing!");
                 while(theta <= 360) {
@@ -39,11 +38,12 @@ public class Clicker {
                     };
                     System.out.println(circleCoord[0] + "   " + circleCoord[1]);
                     bobTheClicker.mouseMove(circleCoord[0], circleCoord[1]);
-                    //Thread.sleep(200);
+                    bobTheClicker.mousePress(InputEvent.BUTTON1_MASK);
+                    bobTheClicker.mouseRelease(InputEvent.BUTTON1_MASK);
+                    //Thread.sleep(1);
                     theta += step;
                 }
             }
-            bobTheClicker.mouseRelease(InputEvent.BUTTON1_MASK);
 
 
 

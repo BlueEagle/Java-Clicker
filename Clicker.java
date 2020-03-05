@@ -29,7 +29,7 @@ public class Clicker {
                 double theta = 0;
                 double h = centerPoint[0];
                 double k = centerPoint[1];
-                double step = 1;
+                double step = 2;
 
                 System.out.println("About to do the thing!");
                 while(theta <= 360) {
@@ -39,7 +39,7 @@ public class Clicker {
                     };
                     System.out.println(circleCoord[0] + "   " + circleCoord[1]);
                     bobTheClicker.mouseMove(circleCoord[0], circleCoord[1]);
-                    //Thread.sleep(200);
+                    Thread.sleep(1);
                     theta += step;
                 }
             }
