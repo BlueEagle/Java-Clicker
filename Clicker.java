@@ -2,6 +2,7 @@ import java.awt.Robot;
 import java.awt.AWTException;
 import java.awt.Toolkit;
 import java.awt.Dimension;
+import java.awt.event.InputEvent;
 
 public class Clicker {
 
@@ -22,23 +23,27 @@ public class Clicker {
             System.out.println("Circle mode activate!");
             bobTheClicker.mouseMove(centerPoint[0], centerPoint[1]);
 
+            bobTheClicker.mousePress(InputEvent.BUTTON1_MASK);
             for(int i=0; i<100;i++){
-            double radius = 200;
-            double theta = 0;
-            double h = centerPoint[0];
-            double k = centerPoint[1];
-            double step = 1;
+                double radius = 200;
+                double theta = 0;
+                double h = centerPoint[0];
+                double k = centerPoint[1];
+                double step = 2;
 
-            System.out.println("About to do the thing!");
-            while(theta++ <= 360) {
-                int[] circleCoord = {
-                    (int)(h + radius*Math.cos(theta)),
-                    (int)(k + radius*Math.sin(theta))
-                };
-                System.out.println(circleCoord[0] + "   " + circleCoord[1]);
-                bobTheClicker.mouseMove(circleCoord[0], circleCoord[1]);
+                System.out.println("About to do the thing!");
+                while(theta <= 360) {
+                    int[] circleCoord = {
+                        (int)(h + radius*Math.cos(theta)),
+                        (int)(k + radius*Math.sin(theta))
+                    };
+                    System.out.println(circleCoord[0] + "   " + circleCoord[1]);
+                    bobTheClicker.mouseMove(circleCoord[0], circleCoord[1]);
+                    Thread.sleep(50);
+                    theta += step;
+                }
             }
-            }
+            bobTheClicker.mouseRelease(InputEvent.BUTTON1_MASK);
 
 
 
