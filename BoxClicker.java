@@ -4,7 +4,7 @@ import java.awt.Toolkit;
 import java.awt.Dimension;
 import java.awt.event.InputEvent;
 
-public class DotClicker {
+public class BoxClicker {
 
     public static void main(String[] args) {
         try{
@@ -23,7 +23,7 @@ public class DotClicker {
             System.out.println("Circle mode activate!");
             bobTheClicker.mouseMove(centerPoint[0], centerPoint[1]);
 
-            for(int i=0; i<1000;i++){
+            for(int i=0; i<100;i++){
                 double radius = 200;
                 double theta = 0;
                 double h = centerPoint[0];
@@ -38,12 +38,19 @@ public class DotClicker {
                     };
                     System.out.println(circleCoord[0] + "   " + circleCoord[1]);
                     bobTheClicker.mouseMove(circleCoord[0], circleCoord[1]);
+                    Thread.sleep(1);
+
+                    // sprinkle in some randomness
+                    step = (double)((int)(Math.random()*50 + 1));
+
+                    // click
                     bobTheClicker.mousePress(InputEvent.BUTTON1_MASK);
                     bobTheClicker.mouseRelease(InputEvent.BUTTON1_MASK);
-                    //Thread.sleep(1);
+
                     theta += step;
                 }
             }
+           
 
 
 

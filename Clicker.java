@@ -29,7 +29,7 @@ public class Clicker {
                 double theta = 0;
                 double h = centerPoint[0];
                 double k = centerPoint[1];
-                double step = 2;
+                double step = 1;
 
                 System.out.println("About to do the thing!");
                 while(theta <= 360) {
