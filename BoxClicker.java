@@ -24,11 +24,11 @@ public class BoxClicker {
             bobTheClicker.mouseMove(centerPoint[0], centerPoint[1]);
 
             for(int i=0; i<100;i++){
-                double radius = 200;
+                double radius = 100;
                 double theta = 0;
                 double h = centerPoint[0];
                 double k = centerPoint[1];
-                double step = 1;
+                double step = (double)((int)(Math.random()*50 + 1));;
 
                 System.out.println("About to do the thing!");
                 while(theta <= 360) {
@@ -38,7 +38,7 @@ public class BoxClicker {
                     };
                     System.out.println(circleCoord[0] + "   " + circleCoord[1]);
                     bobTheClicker.mouseMove(circleCoord[0], circleCoord[1]);
-                    Thread.sleep(1);
+                    Thread.sleep((int)(Math.random()*200 + 51));
 
                     // sprinkle in some randomness
                     step = (double)((int)(Math.random()*50 + 1));
