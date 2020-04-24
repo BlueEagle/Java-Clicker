@@ -18,7 +18,6 @@ public class BoxClicker {
             System.out.println("Screen width: " + screenWidth + ", height: " + screenHeight + "\n\n");
             final int[] centerPoint = { screenWidth / 2, screenHeight / 2 };
 
-            System.out.println("Circle mode activate!");
             bobTheClicker.mouseMove(centerPoint[0], centerPoint[1]);
 
             int clicks = 0;
@@ -45,7 +44,7 @@ public class BoxClicker {
                     bobTheClicker.mousePress(InputEvent.BUTTON1_DOWN_MASK);
                     bobTheClicker.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
                     clicks++;
-                    System.out.println(clicks);
+                    System.out.print('.');   // System.out.print(clicks);
 
                     theta += step;
                 }
