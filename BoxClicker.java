@@ -21,19 +21,20 @@ public class BoxClicker {
             System.out.println("Circle mode activate!");
             bobTheClicker.mouseMove(centerPoint[0], centerPoint[1]);
 
-            for (int i = 0; i < 100; i++) {
+            int clicks = 0;
+
+            while(clicks < 1000) {
                 final double radius = 100;
                 double theta = 0;
                 final double h = centerPoint[0];
                 final double k = centerPoint[1];
                 double step = (double) ((int) (Math.random() * 50 + 1));
-                ;
 
-                System.out.println("About to do the thing!");
                 while (theta <= 360) {
+                    if (clicks >= 1000) break;
                     final int[] circleCoord = { (int) (h + radius * Math.cos(theta)),
                             (int) (k + radius * Math.sin(theta)) };
-                    System.out.println(circleCoord[0] + "   " + circleCoord[1]);
+                    //System.out.println(circleCoord[0] + "   " + circleCoord[1]);
                     bobTheClicker.mouseMove(circleCoord[0], circleCoord[1]);
                     Thread.sleep((int) (Math.random() * 70 + 31));
 
@@ -43,6 +44,8 @@ public class BoxClicker {
                     // click
                     bobTheClicker.mousePress(InputEvent.BUTTON1_DOWN_MASK);
                     bobTheClicker.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+                    clicks++;
+                    System.out.println(clicks);
 
                     theta += step;
                 }
