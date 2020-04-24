@@ -1,5 +1,4 @@
 import java.awt.Robot;
-import java.awt.AWTException;
 import java.awt.Toolkit;
 import java.awt.Dimension;
 import java.awt.event.InputEvent;
@@ -42,8 +41,8 @@ public class BoxClicker {
                     step = (double) ((int) (Math.random() * 50 + 1));
 
                     // click
-                    bobTheClicker.mousePress(InputEvent.BUTTON1_MASK);
-                    bobTheClicker.mouseRelease(InputEvent.BUTTON1_MASK);
+                    bobTheClicker.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                    bobTheClicker.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
 
                     theta += step;
                 }
